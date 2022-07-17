@@ -1,6 +1,6 @@
 import 'package:map_exam/viewmodel.dart';
 
-class viewmodel extends viewmodel {
+class Viewmodel {
   Future editScreen({
     required String id,
     required String title,
