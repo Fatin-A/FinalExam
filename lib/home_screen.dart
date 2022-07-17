@@ -12,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreen extends State<HomeScreen> {
   bool isReadmore = false;
   bool isReadless = true;
-  // bool isVisible = false;
+  bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +44,14 @@ class _HomeScreen extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Visibility(
-                  // visible: isVisible,
+                  visible: isVisible,
                   child: IconButton(
                     icon: const Icon(Icons.edit, color: Colors.blue),
                     onPressed: () {},
                   ),
                 ),
                 Visibility(
-                  // visible: isVisible,
+                  visible: isVisible,
                   child: IconButton(
                     icon: const Icon(
                       Icons.delete,
@@ -67,7 +67,7 @@ class _HomeScreen extends State<HomeScreen> {
           subtitle: const Text('Note content'),
           onTap: () {},
           onLongPress: () {
-            // showToast();
+            showToast();
           },
         ),
       ),
@@ -103,11 +103,11 @@ class _HomeScreen extends State<HomeScreen> {
     );
   }
 
-  // void showToast() {
-  //   setState(() {
-  //     isVisible = !isVisible;
-  //   });
-  // }
+  void showToast() {
+    setState(() {
+      isVisible = !isVisible;
+    });
+  }
 
   // Future<http.Response> deleteDocument(String id) async {
   //   final http.Response response = await http.delete(
