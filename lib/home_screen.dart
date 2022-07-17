@@ -1,5 +1,8 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:map_exam/edit_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   static Route route() => MaterialPageRoute(builder: (_) => const HomeScreen());
@@ -47,7 +50,12 @@ class _HomeScreen extends State<HomeScreen> {
                   visible: isVisible,
                   child: IconButton(
                     icon: const Icon(Icons.edit, color: Colors.blue),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => EditScreen()));
+                    },
                   ),
                 ),
                 Visibility(
@@ -77,7 +85,7 @@ class _HomeScreen extends State<HomeScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           FloatingActionButton(
-              child: const Icon(Icons.menu),
+              child: const Icon(Icons.unfold_less),
               tooltip: 'Show less. Hide notes content',
               onPressed: () {
                 setState(() {
@@ -98,7 +106,10 @@ class _HomeScreen extends State<HomeScreen> {
           FloatingActionButton(
             child: const Icon(Icons.add),
             tooltip: 'Add a new note',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => EditScreen()));
+            },
           ),
         ],
       ),

@@ -1,0 +1,14 @@
+name: map_mvvm
+description: simplified version of MVVM implementation
+version: 0.0.1
+
+environment:
+  sdk: ">=2.16.1 <3.0.0"
+  flutter: ">=1.17.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^7.2.0
+  provider: ^6.0.2
+  tuple: ^2.0.0
