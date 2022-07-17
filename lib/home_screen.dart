@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatefulWidget {
   static Route route() => MaterialPageRoute(builder: (_) => const HomeScreen());
@@ -11,7 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreen extends State<HomeScreen> {
   bool isReadmore = false;
   bool isReadless = true;
-  bool isVisible = false;
+  // bool isVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,16 +43,22 @@ class _HomeScreen extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                IconButton(
-                  icon: const Icon(Icons.edit, color: Colors.blue),
-                  onPressed: () {},
-                ),
-                IconButton(
-                  icon: const Icon(
-                    Icons.delete,
-                    color: Colors.blue,
+                Visibility(
+                  // visible: isVisible,
+                  child: IconButton(
+                    icon: const Icon(Icons.edit, color: Colors.blue),
+                    onPressed: () {},
                   ),
-                  onPressed: () {},
+                ),
+                Visibility(
+                  // visible: isVisible,
+                  child: IconButton(
+                    icon: const Icon(
+                      Icons.delete,
+                      color: Colors.blue,
+                    ),
+                    onPressed: () {},
+                  ),
                 ),
               ],
             ),
@@ -60,9 +67,7 @@ class _HomeScreen extends State<HomeScreen> {
           subtitle: const Text('Note content'),
           onTap: () {},
           onLongPress: () {
-            setState(() {
-              isVisible = !isVisible;
-            });
+            // showToast();
           },
         ),
       ),
@@ -98,9 +103,19 @@ class _HomeScreen extends State<HomeScreen> {
     );
   }
 
-  void showToast() {
-    setState(() {
-      isVisible = !isVisible;
-    });
-  }
+  // void showToast() {
+  //   setState(() {
+  //     isVisible = !isVisible;
+  //   });
+  // }
+
+  // Future<http.Response> deleteDocument(String id) async {
+  //   final http.Response response = await http.delete(
+  //     Uri.parse('https://jsonplaceholder.typicode.com/document/$id'),
+  //     headers: <String, String>{
+  //       'title': 'application/json; charset=UTF-8',
+  //     },
+  //   );
+  //   return response;
+  // }
 }
