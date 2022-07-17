@@ -57,7 +57,9 @@ class _HomeScreen extends State<HomeScreen> {
                       Icons.delete,
                       color: Colors.blue,
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      deleteDocument('id');
+                    },
                   ),
                 ),
               ],
