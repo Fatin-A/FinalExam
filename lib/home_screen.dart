@@ -108,4 +108,14 @@ class _HomeScreen extends State<HomeScreen> {
       isVisible = !isVisible;
     });
   }
+
+  Future<http.Response> deleteDocument(String id) async {
+    final http.Response response = await http.delete(
+      Uri.parse('https://jsonplaceholder.typicode.com/users/$id'),
+      headers: <String, String>{
+        'title': 'application/json; charset=UTF-8',
+      },
+    );
+    return response;
+  }
 }
